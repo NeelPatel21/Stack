@@ -34,7 +34,7 @@ public class Stack_with_awt extends JFrame
                {
                     z.push();
                          popb.setEnabled(true);
-                    if(z.t==l)
+                    if(z.t==l-1)
                          pushb.setEnabled(false);
                     act();
                }               
