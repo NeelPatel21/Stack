@@ -17,7 +17,7 @@ public class Stack_with_awt extends JFrame
           int ii=450/(l+1);
           for(int i=0;i<t.length;i++)
           {
-               t[i]=new JTextArea("hello"+i,1,1);
+               t[i]=new JTextArea(1,1);
                t[i].setRows(1);
                t[i].setColumns(1);
                t[i].setBounds(25,415-(i+1)*ii,50,20);
