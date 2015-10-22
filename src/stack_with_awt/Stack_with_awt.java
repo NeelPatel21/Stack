@@ -6,27 +6,23 @@ public class Stack_with_awt extends JFrame
 {
      int l;
      neelst z;
-     JTextArea t[];
+     spenal t[];
      JButton pushb,popb;
      Stack_with_awt()
      {
           String b=JOptionPane.showInputDialog("enter size of stack");
           l=Integer.parseInt(b);
           z=new neelst(l);
-          t=new JTextArea[l];
+          t=new spenal[l];
           int ii=450/(l+1);
           for(int i=0;i<t.length;i++)
           {
-               t[i]=new JTextArea(1,1);
-               t[i].setRows(1);
-               t[i].setColumns(1);
-               t[i].setBounds(25,415-(i+1)*ii,50,20);
-               t[i].setEnabled(false);
-               t[i].setText("");
+               t[i]=new spenal();
+               t[i].setLocation(25,415-(i+1)*ii);
                add(t[i]);
           }
           pushb= new JButton("push");
-          pushb.setBounds(100,200,100,20);
+          pushb.setBounds(200,200,100,20);
           pushb.setEnabled(true);
           pushb.addActionListener(new ActionListener(){
                @Override
@@ -41,13 +37,12 @@ public class Stack_with_awt extends JFrame
           });
           add(pushb);
           popb=new JButton("pop");
-          popb.setBounds(100,230,100,20);
+          popb.setBounds(200,230,100,20);
           popb.setEnabled(false);
           popb.addActionListener(new ActionListener(){
                @Override
                public void actionPerformed(ActionEvent e)
                {
-                    t[z.t].setText("");
                     z.pop();
                          pushb.setEnabled(true);
                     if(z.t==-1)
@@ -56,7 +51,7 @@ public class Stack_with_awt extends JFrame
                }               
           });
           add(popb);
-          setSize(300,450);
+          setSize(350,450);
           setLayout(null);
           setVisible(true);
           setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,10 +62,16 @@ public class Stack_with_awt extends JFrame
      }
      void act()
      {
+          for(int i=0;i<t.length;i++)
+          {
+               t[i].a.setText("");
+               t[i].Top.setVisible(false);
+          }
           for(int i=0;i<=z.t;i++)
           {
-               t[i].setText(Integer.toString(z.s[i]));
+               t[i].a.setText(Integer.toString(z.s[i]));
           }
+          if(z.t>=0)
+               t[z.t].Top.setVisible(true);
      }
-     
 }
